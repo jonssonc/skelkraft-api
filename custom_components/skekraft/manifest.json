@@ -1,0 +1,11 @@
+{
+  "domain": "skekraft",
+  "name": "Skellefteå Kraft",
+  "codeowners": [],
+  "config_flow": true,
+  "documentation": "https://github.com/DITT-ANVÄNDARNAMN/ha-skekraft",
+  "issue_tracker": "https://github.com/DITT-ANVÄNDARNAMN/ha-skekraft/issues",
+  "iot_class": "cloud_polling",
+  "requirements": ["SkeKraft>=0.0.3"],
+  "version": "0.1.0"
+}
