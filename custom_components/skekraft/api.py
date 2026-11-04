@@ -47,7 +47,19 @@ class SkekraftClient:
         try:
             resp = await self._api.login(self._username, self._password)
         except Exception as err:  # noqa: BLE001
+            _LOGGER.exception("Inloggningsanrop kastade ett fel")
             raise SkekraftConnectionError(str(err)) from err
+
+        # Logga svaret utan token
+        if isinstance(resp, dict):
+            _LOGGER.debug(
+                "Inloggningssvar: ErrNumber=%r ErrDescription=%r nycklar=%s",
+                resp.get("ErrNumber"),
+                resp.get("ErrDescription"),
+                list(resp.keys()),
+            )
+        else:
+            _LOGGER.debug("Inloggningssvar (typ %s): %r", type(resp), resp)
 
         ok = False
         if isinstance(resp, dict):
